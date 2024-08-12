@@ -1,0 +1,316 @@
+/* Estilos base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos del layout */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: #007BFF;
+    color: white;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    /* Fija el sidebar en la posición */
+    top: 0;
+    left: 0;
+}
+
+.content {
+    margin-left: 250px;
+    /* Espacio para el sidebar */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* Permite que el contenido se expanda */
+    min-height: 100vh;
+    /* Asegura que el contenido ocupe toda la altura de la ventana */
+    position: relative;
+    /* Necesario para el footer móvil */
+    padding: 0;
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    padding: 1rem;
+}
+
+.navbar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .brand {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    /* Ajusta el tamaño de la fuente */
+    font-weight: bold;
+    /* Hace la fuente más gruesa */
+}
+
+.navbar .brand img {
+    margin-right: 0.5rem;
+}
+
+.navbar .hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.navbar nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.navbar nav a {
+    margin: 0.5rem 0;
+    text-decoration: none;
+    color: white;
+}
+
+/* Estilos de los filtros */
+.filters {
+    padding: 1rem;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.filters select {
+    border: 1px solid #ccc;
+    /* Borde del selector */
+    border-radius: 0.25rem;
+    /* Bordes redondeados */
+    padding: 0.30rem 0.65rem;
+    /* Espaciado interno */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre el selector */
+}
+
+/* Estilos del contenido principal */
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columnas en vista de escritorio */
+    gap: 1rem;
+    flex-grow: 1;
+    /* Permite que el contenido principal se expanda */
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Estilos de las tarjetas */
+.card {
+    background-color: hsl(253, 100%, 15%);
+    border: 1px solid hsl(253, 100%, 15%);
+    color: #f0f0f0;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 280px;
+    /* Altura fija para las tarjetas */
+    border-radius: 0.5rem;
+    align-items: center;
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.7);
+    /* Sombra de la tarjeta */
+}
+
+.card h2 {
+    margin: 0;
+    /* Elimina el margen superior e inferior por defecto */
+    padding: 0.5rem 0;
+    /* Opcional: añade padding superior e inferior si es necesario */
+}
+
+.card img {
+    width: 100%;
+    height: 185px;
+    /* Altura fija para las imágenes */
+    object-fit: cover;
+    /* Asegura que la imagen cubra el área sin distorsionarse */
+    margin-bottom: 0.25rem;
+    /* Espacio debajo de la imagen */
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    max-width: 5rem;
+}
+
+/* Estilos de la paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: hsl(253, 100%, 15%);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+    /* Empuja el pie de página al final del contenido en móvil */
+}
+
+/* Estilos específicos para la sección que solo se verá en móviles */
+.mobile-footer {
+    display: none;
+    /* Oculta por defecto */
+    background-color: hsl(253, 100%, 15%);
+    color: white;
+    /* Texto blanco */
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    /* Ancho completo */
+    box-sizing: border-box;
+    position: relative;
+    /* Posición relativa para integrarse con el contenido */
+    margin-top: 1rem;
+    /* Espacio superior */
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 576px) {
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        /* Cambia la posición para móviles */
+    }
+
+    .content {
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        /* Permite que el contenido se expanda y empuje el pie de página hacia abajo */
+        padding-bottom: 0;
+        /* Quita el padding adicional en móviles */
+    }
+
+    .filters {
+        padding: 1rem;
+        z-index: 1;
+        /* Asegura que esté encima de otros contenidos */
+    }
+
+    .navbar .hamburger {
+        display: block;
+    }
+
+    .navbar nav {
+        display: none;
+        /* Oculta el menú por defecto */
+        flex-direction: column;
+    }
+
+    .navbar nav.show {
+        display: flex;
+        /* Muestra el menú cuando se añade la clase "show" */
+    }
+
+    .navbar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .main-content {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 columna en vista móvil */
+        flex: 1;
+        /* Permite que el contenido principal se expanda y empuje el pie de página hacia abajo */
+    }
+
+    .card {
+        height: auto;
+        /* Ajusta la altura para móviles */
+    }
+
+    .card img {
+        height: 185px;
+        /* Ajusta la altura de la imagen para móviles */
+    }
+
+    /* Ocultar el footer en la versión móvil */
+    footer {
+        display: none;
+        /* Oculta el pie de página en móviles */
+    }
+
+    .mobile-footer {
+        display: block;
+        /* Muestra la sección en móviles */
+    }
+
+    .mobile-footer i {
+        color: white;
+        /* Cambia el color de los iconos a blanco */
+        margin: 0 0.25rem;
+        /* Espaciado entre los iconos */
+    }
+}
+
+/* Estilos para dispositivos de escritorio */
+@media (min-width: 576px) {
+    .main-content {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 columnas en vista de escritorio */
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+
+    footer {
+        position: absolute;
+        /* Posiciona el pie de página en la parte inferior del sidebar */
+        bottom: 0;
+        width: 250px;
+        /* Ancho igual al del sidebar */
+        box-sizing: border-box;
+    }
+}
+
+.footer-content i {
+    color: white;
+    /* Cambia el color de los iconos a blanco */
+    margin: 0 0.25rem;
+    /* Espaciado entre los iconos */
+}
